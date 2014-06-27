@@ -56,23 +56,6 @@ var config = { //this is from https://developer.mozilla.org/en-US/docs/Setting_u
 	}
 };
 
-function logLimits(enableDev) {
-    //enableDev is true or false, if true it sets the loglimits to really hi, if false it returns the defaults
-    var hudLogLimitPrefs = Services.prefs.getBranch('devtools.hud.loglimit.');
-    var devSettings = {
-        console: 2000,
-        exception: 2000
-    }
-
-    for (var p in devSettings) {
-        if (enableDev) {
-           hudLogLimitPrefs.setIntPref(p, devSettings[p]);
-        } else {
-            hudLogLimitPrefs.clearUserPref(p);
-        }
-    }
-}
-
 function startup(aData, aReason) {
 	if ([ADDON_ENABLE, ADDON_INSTALL, ADDON_UPGRADE, ADDON_DOWNGRADE].indexOf(aReason) > -1) {
 		var log = ['Log of actions performed during enabling of production environment:'];
@@ -94,7 +77,6 @@ function startup(aData, aReason) {
 				log.push('-"' + p +'" was ALREADY set to production environment value of "' + config[p].e + '"');
 			}
 		}
-		logLimits(true);
 		Services.prompt.alert(null, title + ' - Startup', log.join('\n'));
 	}
 }
@@ -136,7 +118,11 @@ function shutdown(aData, aReason) {
 			}
 			
 		}
-		logLimits(false);
+		//reset hud limits
+		Services.prefs.clearUserPref("devtools.hud.loglimit.console"); //logging
+		Services.prefs.clearUserPref("devtools.hud.loglimit.cssparser"); //css
+		Services.prefs.clearUserPref("devtools.hud.loglimit.exception"); //js
+		Services.prefs.clearUserPref("devtools.hud.loglimit.network"); //net
 		Services.prompt.alert(null, title + ' - Shutdown', log.join('\n'));
 	}
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<setting pref="devtools.hud.loglimit.console" title="Logging :: Console Auto Discard Limit" type="integer">
+		After this many lines of messages in the "Logging" category, the oldest ones will be automatically discarded. Log messages are due to the following progrmattic methods: `console.log`, `console.info`, `console.error`, `console.warn`. Default: 200
+	</setting>
+	<setting pref="devtools.hud.loglimit.cssparser" title="CSS :: Console Auto Discard Limit" type="integer">
+		After this many lines of messages in the "CSS" category, the oldest ones will be automatically discarded. Default: 200
+	</setting>
+	<setting pref="devtools.hud.loglimit.exception" title="JS :: Console Auto Discard Limit" type="integer">
+		After this many lines of messages in the "JS" category, the oldest ones will be automatically discarded. JS messages can be programatically generated with `Components.utils.reportError`. Default: 200
+	</setting>
+	<setting pref="devtools.hud.loglimit.network" title="Network :: Console Auto Discard Limit" type="integer">
+		After this many lines of messages in the "Net" category, the oldest ones will be automatically discarded. Default: 200
+	</setting>
+	<setting pref="devtools.hud.loglimit.security" title="Security :: Console Auto Discard Limit" type="integer">
+		After this many lines of messages in the "Security" category, the oldest ones will be automatically discarded. Default: Not Limited (No Preference Value)
+	</setting>
+</vbox>
