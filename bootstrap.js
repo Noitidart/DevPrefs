@@ -58,6 +58,11 @@ var config = { //this is from https://developer.mozilla.org/en-US/docs/Setting_u
 		e: true,
 		d: false,
 		type: 'Bool'
+	},
+	'xpinstall.signatures.required': {
+		e: false,
+		d: true,
+		type: 'Bool'
 	}
 };
 
