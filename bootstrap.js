@@ -77,7 +77,7 @@ function startup(aData, aReason) {
 				cVal = false; //undefined so force set it to false
 				if (cVal == config[p].e) {
 					log.push('-"' + p +'" was not defined, but production environment is "false" so did not create');
-					break;
+					continue;
 				}
 			}
 			if (cVal != config[p].e) {
@@ -101,7 +101,7 @@ function shutdown(aData, aReason) {
 				cVal = Services.prefs['get' + config[p].type + 'Pref'](p);
 			} catch (ex) {
 				log.push('-"' + p +'" is not defined and this matches the non-production environment setting of false so did not take any action to reset it');
-				break;
+				continue;
 			}
 
 			try {
