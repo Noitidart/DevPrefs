@@ -34,6 +34,11 @@ var config = { //this is from https://developer.mozilla.org/en-US/docs/Setting_u
 		d: false,
 		type: 'Bool'
 	},
+	'devtools.debugger.prompt-connection': {
+		e: false,
+		d: true,
+		type: 'Bool'
+	},
 	'extensions.logging.enabled': {
 		e: true,
 		d: false,
@@ -53,6 +58,11 @@ var config = { //this is from https://developer.mozilla.org/en-US/docs/Setting_u
 		e: true,
 		d: false,
 		type: 'Bool'
+	},
+	'xpinstall.signatures.required': {
+		e: false,
+		d: true,
+		type: 'Bool'
 	}
 };
 
@@ -67,7 +77,7 @@ function startup(aData, aReason) {
 				cVal = false; //undefined so force set it to false
 				if (cVal == config[p].e) {
 					log.push('-"' + p +'" was not defined, but production environment is "false" so did not create');
-					break;
+					continue;
 				}
 			}
 			if (cVal != config[p].e) {
@@ -91,7 +101,7 @@ function shutdown(aData, aReason) {
 				cVal = Services.prefs['get' + config[p].type + 'Pref'](p);
 			} catch (ex) {
 				log.push('-"' + p +'" is not defined and this matches the non-production environment setting of false so did not take any action to reset it');
-				break;
+				continue;
 			}
 
 			try {
@@ -116,7 +126,7 @@ function shutdown(aData, aReason) {
 				log.push('--Exception: ' + ex);
 				//Services.prefs['set' + config[p].type + 'Pref'](p, !config[p].value);
 			}
-			
+
 		}
 		//reset hud limits
 		Services.prefs.clearUserPref("devtools.hud.loglimit.console"); //logging
