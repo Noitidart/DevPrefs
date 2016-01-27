@@ -34,6 +34,11 @@ var config = { //this is from https://developer.mozilla.org/en-US/docs/Setting_u
 		d: false,
 		type: 'Bool'
 	},
+	'devtools.debugger.prompt-connection': {
+		e: false,
+		d: true,
+		type: 'Bool'
+	},
 	'extensions.logging.enabled': {
 		e: true,
 		d: false,
@@ -116,7 +121,7 @@ function shutdown(aData, aReason) {
 				log.push('--Exception: ' + ex);
 				//Services.prefs['set' + config[p].type + 'Pref'](p, !config[p].value);
 			}
-			
+
 		}
 		//reset hud limits
 		Services.prefs.clearUserPref("devtools.hud.loglimit.console"); //logging
