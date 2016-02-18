@@ -15,4 +15,17 @@
 	<setting pref="devtools.hud.loglimit.security" title="Security :: Console Auto Discard Limit" type="integer">
 		After this many lines of messages in the "Security" category, the oldest ones will be automatically discarded. Default: Not Limited (No Preference Value)
 	</setting>
+	<setting pref="extensions.sdk.console.logLevel" title="Extensions :: Log level" type="menulist">
+		Enables your add-on to log error, warning or informational messages.
+		<menulist>
+				<menupopup>
+					<menuitem value="all" label="all"/>
+					<menuitem value="debug" label="debug: debug, error, exception, info, log, time, timeEnd, trace, warn"/>
+					<menuitem value="info" label="info: error, exception, info, log, time, timeEnd, trace, warn"/>
+					<menuitem value="warn" label="warn: error, exception, warn"/>
+					<menuitem value="error" label="error: error, exception"/>
+					<menuitem value="off" label="off"/>
+				</menupopup>
+			</menulist>
+	</setting>
 </vbox>
