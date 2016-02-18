@@ -63,6 +63,11 @@ var config = { //this is from https://developer.mozilla.org/en-US/docs/Setting_u
 		e: false,
 		d: true,
 		type: 'Bool'
+	},
+	'extensions.sdk.console.logLevel': {
+		e: 'all',
+		d: 'error',
+		type: 'Char'
 	}
 };
 
