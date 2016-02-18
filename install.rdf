@@ -5,7 +5,7 @@
 	<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 	  <Description about="urn:mozilla:install-manifest">
 		<em:id>DevPrefs@jetpack</em:id>
-		<em:version>1.4</em:version>
+		<em:version>1.5</em:version>
 		<em:type>2</em:type>
 		<em:bootstrap>true</em:bootstrap>
 		<em:unpack>false</em:unpack>
@@ -16,7 +16,7 @@
 		  <Description>
 			<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 			<em:minVersion>4.0</em:minVersion>
-			<em:maxVersion>26.0</em:maxVersion>
+			<em:maxVersion>45.0</em:maxVersion>
 		  </Description>
 		</em:targetApplication>
 
@@ -35,5 +35,7 @@
 		<em:description>Automatically sets all preferences for Firefox addon developer production environment.</em:description>
 		<em:creator>Noitidart</em:creator>
 		<em:contributor>mstrebel</em:contributor>
+		<em:contributor>tumpio</em:contributor>
+		<em:contributor>oleksiilevzhynskyi</em:contributor>
 	  </Description>
 	</RDF>
