@@ -68,6 +68,11 @@ var config = { //this is from https://developer.mozilla.org/en-US/docs/Setting_u
 		e: 'all',
 		d: 'error',
 		type: 'Char'
+	},
+	'xpinstall.whitelist.required': {
+		e: false,
+		d: true,
+		type: 'Bool'
 	}
 };
 
